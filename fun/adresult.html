@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>User Profile</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #F7F9FA;
+    }
+  </style>
+</head>
+<body class="p-4">
+  <!-- Profile Header -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <div class="text-center">
+      <img src="https://placehold.co/100x100" alt="Profile Picture" class="mx-auto rounded-full w-24 h-24 mb-4">
+      <h1 class="text-2xl font-bold mb-1">John Doe</h1>
+      <p class="text-gray-500 mb-4">@john_doe</p>
+      <textarea class="w-full border rounded p-2 mb-4" placeholder="Write a short bio or status message..."></textarea>
+      <div class="flex justify-center space-x-4 mb-4">
+        <button class="bg-[#23FF9ABF] text-white px-4 py-2 rounded"><i class="fas fa-edit"></i> Edit Profile</button>
+        <button class="bg-[#23FF9ABF] text-white px-4 py-2 rounded"><i class="fas fa-user-plus"></i> Send Friend Request</button>
+        <button class="bg-red-500 text-white px-4 py-2 rounded"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Activity Feed -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Activity Feed</h2>
+    <div class="space-y-4 h-64 overflow-y-auto">
+      <div class="flex items-center space-x-4">
+        <i class="fas fa-trophy text-yellow-500"></i>
+        <div>
+          <p class="font-medium">Earned the "Quiz Master" badge</p>
+          <p class="text-gray-500 text-sm">2 hours ago</p>
+        </div>
+      </div>
+      <!-- Repeat similar blocks for other activities -->
+    </div>
+  </div>
+
+  <!-- Friend List Section -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-bold">Friend List</h2>
+      <button class="bg-[#23FF9ABF] text-white px-4 py-2 rounded"><i class="fas fa-user-plus"></i> Add Friend</button>
+    </div>
+    <input type="text" placeholder="Search friends..." class="w-full border rounded p-2 mb-4">
+    <div class="grid grid-cols-2 gap-4">
+      <div class="flex items-center space-x-4">
+        <img src="https://placehold.co/50x50" alt="Friend Profile Picture" class="rounded-full w-12 h-12">
+        <div>
+          <p class="font-medium">Jane Smith</p>
+          <p class="text-gray-500 text-sm">Online</p>
+        </div>
+      </div>
+      <!-- Repeat similar blocks for other friends -->
+    </div>
+  </div>
+
+  <!-- Achievements & Badges -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Achievements</h2>
+    <div class="grid grid-cols-3 gap-4">
+      <div class="text-center">
+        <img src="https://placehold.co/50x50" alt="Badge Image" class="mx-auto mb-2">
+        <p class="font-medium">Quiz Master</p>
+      </div>
+      <!-- Repeat similar blocks for other badges -->
+    </div>
+    <div class="mt-4">
+      <p class="font-medium">Progress to next badge:</p>
+      <div class="w-full bg-gray-200 rounded-full h-2.5">
+        <div class="bg-[#23FF9ABF] h-2.5 rounded-full" style="width: 70%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Icon -->
+  <div class="fixed top-4 right-4">
+    <div class="relative">
+      <i class="fas fa-bell text-2xl text-gray-700 cursor-pointer"></i>
+      <div class="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 hidden">
+        <p class="font-medium">Notifications</p>
+        <div class="mt-2 space-y-2">
+          <p class="text-gray-700">You have a new friend request</p>
+          <!-- Repeat similar blocks for other notifications -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Messages Icon -->
+  <div class="fixed top-4 right-16">
+    <div class="relative">
+      <i class="fas fa-envelope text-2xl text-gray-700 cursor-pointer"></i>
+      <div class="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 hidden">
+        <p class="font-medium">Messages</p>
+        <div class="mt-2 space-y-2">
+          <p class="text-gray-700">You have a new message from Jane</p>
+          <!-- Repeat similar blocks for other messages -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Customization -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Profile Customization</h2>
+    <div class="flex space-x-4 mb-4">
+      <div>
+        <p class="font-medium mb-2">Theme Color</p>
+        <input type="color" value="#23FF9ABF" class="w-16 h-16 border rounded">
+      </div>
+      <div>
+        <p class="font-medium mb-2">Font Style</p>
+        <select class="border rounded p-2">
+          <option value="Roboto">Roboto</option>
+          <!-- Add more font options as needed -->
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Settings -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Privacy Settings</h2>
+    <div class="space-y-4">
+      <div>
+        <p class="font-medium mb-2">Who can see your profile?</p>
+        <select class="border rounded p-2 w-full">
+          <option value="Public">Public</option>
+          <option value="Friends Only">Friends Only</option>
+          <option value="Private">Private</option>
+        </select>
+      </div>
+      <div>
+        <p class="font-medium mb-2">Who can see your activity feed?</p>
+        <select class="border rounded p-2 w-full">
+          <option value="Public">Public</option>
+          <option value="Friends Only">Friends Only</option>
+          <option value="Private">Private</option>
+        </select>
+      </div>
+      <div>
+        <p class="font-medium mb-2">Who can see your friend list?</p>
+        <select class="border rounded p-2 w-full">
+          <option value="Public">Public</option>
+          <option value="Friends Only">Friends Only</option>
+          <option value="Private">Private</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaderboard -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Leaderboard</h2>
+    <div class="flex justify-between items-center mb-4">
+      <p class="font-medium">Your Rank: <span class="text-[#23FF9ABF]">#5</span></p>
+      <button class="bg-[#23FF9ABF] text-white px-4 py-2 rounded">View Full Leaderboard</button>
+    </div>
+    <div class="space-y-4">
+      <div class="flex justify-between">
+        <p>Quiz Scores</p>
+        <p>#5</p>
+      </div>
+      <div class="flex justify-between">
+        <p>Badges Earned</p>
+        <p>#3</p>
+      </div>
+      <div class="flex justify-between">
+        <p>Activity Levels</p>
+        <p>#8</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Preferences -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Notification Preferences</h2>
+    <div class="space-y-4">
+      <div class="flex items-center">
+        <input type="checkbox" class="mr-2">
+        <p>In-app Notifications</p>
+      </div>
+      <div class="flex items-center">
+        <input type="checkbox" class="mr-2">
+        <p>Email Notifications</p>
+      </div>
+      <div class="flex items-center">
+        <input type="checkbox" class="mr-2">
+        <p>SMS Notifications</p>
+      </div>
+      <div>
+        <p class="font-medium mb-2">Events for Notifications</p>
+        <div class="flex items-center">
+          <input type="checkbox" class="mr-2">
+          <p>Friend Requests</p>
+        </div>
+        <div class="flex items-center">
+          <input type="checkbox" class="mr-2">
+          <p>Quiz Reminders</p>
+        </div>
+        <!-- Add more notification events as needed -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Account Linking -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Account Linking</h2>
+    <div class="flex space-x-4">
+      <button class="bg-blue-600 text-white px-4 py-2 rounded"><i class="fab fa-google"></i> Link Google</button>
+      <button class="bg-blue-800 text-white px-4 py-2 rounded"><i class="fab fa-facebook"></i> Link Facebook</button>
+      <button class="bg-gray-800 text-white px-4 py-2 rounded"><i class="fab fa-github"></i> Link GitHub</button>
+    </div>
+  </div>
+
+  <!-- Progress Tracker -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Progress Tracker</h2>
+    <div class="space-y-4">
+      <div>
+        <p class="font-medium mb-2">Learning Curve</p>
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+          <div class="bg-[#23FF9ABF] h-2.5 rounded-full" style="width: 50%"></div>
+        </div>
+      </div>
+      <div>
+        <p class="font-medium mb-2">Quiz Performance</p>
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+          <div class="bg-[#23FF9ABF] h-2.5 rounded-full" style="width: 75%"></div>
+        </div>
+      </div>
+      <!-- Add more progress indicators as needed -->
+    </div>
+  </div>
+
+  <!-- Friend Recommendations -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Friend Recommendations</h2>
+    <div class="flex space-x-4 overflow-x-auto">
+      <div class="flex-shrink-0 w-40 text-center">
+        <img src="https://placehold.co/50x50" alt="Recommended Friend Profile Picture" class="mx-auto mb-2 rounded-full">
+        <p class="font-medium">Alice Johnson</p>
+        <button class="bg-[#23FF9ABF] text-white px-4 py-2 rounded mt-2">Add Friend</button>
+      </div>
+      <!-- Repeat similar blocks for other friend recommendations -->
+    </div>
+  </div>
+
+  <!-- Status Updates -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Status Updates</h2>
+    <textarea class="w-full border rounded p-2 mb-4" placeholder="Post an update or achievement..."></textarea>
+    <div class="space-y-4">
+      <div class="bg-gray-100 p-4 rounded-lg">
+        <p class="font-medium">John Doe</p>
+        <p class="text-gray-700">Just completed a new quiz on JavaScript!</p>
+        <p class="text-gray-500 text-sm">10 minutes ago</p>
+      </div>
+      <!-- Repeat similar blocks for other status updates -->
+    </div>
+  </div>
+</body>
+</html>

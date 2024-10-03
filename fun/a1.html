@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>User Profile</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #F7F9FA;
+    }
+    .hidden {
+      display: none;
+    }
+    .badge {
+      width: 50px;
+      height: 50px;
+    }
+    .rounded-full-lg {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body class="p-4">
+  <!-- Profile Header -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <div class="text-center">
+      <img src="https://placehold.co/100x100" alt="Profile Picture" class="mx-auto rounded-full-lg mb-4">
+      <h1 class="text-2xl font-bold mb-1">John Doe</h1>
+      <p class="text-gray-500 mb-4">@john_doe</p>
+      <textarea class="w-full border rounded p-2 mb-4" placeholder="Write a short bio or status message..."></textarea>
+      <div class="flex justify-center space-x-4 mb-4">
+        <button class="bg-[#23FF9ABF] text-white px-4 py-2 rounded flex items-center space-x-2">
+          <i class="fas fa-edit"></i> <span>Edit Profile</span>
+        </button>
+        <button class="bg-[#23FF9ABF] text-white px-4 py-2 rounded flex items-center space-x-2">
+          <i class="fas fa-user-plus"></i> <span>Send Friend Request</span>
+        </button>
+        <button onclick="confirmLogout()" class="bg-red-500 text-white px-4 py-2 rounded flex items-center space-x-2">
+          <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Activity Feed -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Activity Feed</h2>
+    <div class="space-y-4 h-64 overflow-y-auto">
+      <div class="flex items-center space-x-4">
+        <i class="fas fa-trophy text-yellow-500"></i>
+        <div>
+          <p class="font-medium">Earned the "Quiz Master" badge</p>
+          <p class="text-gray-500 text-sm">2 hours ago</p>
+        </div>
+      </div>
+      <!-- Add more activities as needed -->
+    </div>
+  </div>
+
+  <!-- Friend List Section -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-bold">Friend List</h2>
+      <button class="bg-[#23FF9ABF] text-white px-4 py-2 rounded flex items-center space-x-2">
+        <i class="fas fa-user-plus"></i> <span>Add Friend</span>
+      </button>
+    </div>
+    <input type="text" placeholder="Search friends..." class="w-full border rounded p-2 mb-4">
+    <div class="grid grid-cols-2 gap-4">
+      <div class="flex items-center space-x-4">
+        <img src="https://placehold.co/50x50" alt="Friend Profile Picture" class="rounded-full w-12 h-12">
+        <div>
+          <p class="font-medium">Jane Smith</p>
+          <p class="text-gray-500 text-sm">Online</p>
+        </div>
+      </div>
+      <!-- Add more friends as needed -->
+    </div>
+  </div>
+
+  <!-- Achievements & Badges -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Achievements</h2>
+    <div class="grid grid-cols-3 gap-4">
+      <div class="text-center">
+        <img src="https://placehold.co/50x50" alt="Badge Image" class="mx-auto mb-2 badge">
+        <p class="font-medium">Quiz Master</p>
+      </div>
+      <!-- Add more badges as needed -->
+    </div>
+    <div class="mt-4">
+      <p class="font-medium">Progress to next badge:</p>
+      <div class="w-full bg-gray-200 rounded-full h-2.5">
+        <div class="bg-[#23FF9ABF] h-2.5 rounded-full" style="width: 70%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Icon -->
+  <div class="fixed top-4 right-4">
+    <div class="relative">
+      <i class="fas fa-bell text-2xl text-gray-700 cursor-pointer" onclick="toggleNotifications()"></i>
+      <div id="notificationDropdown" class="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 hidden">
+        <p class="font-medium">Notifications</p>
+        <div class="mt-2 space-y-2">
+          <p class="text-gray-700">You have a new friend request</p>
+          <!-- Add more notifications as needed -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Messages Icon -->
+  <div class="fixed top-4 right-16">
+    <div class="relative">
+      <i class="fas fa-envelope text-2xl text-gray-700 cursor-pointer" onclick="toggleMessages()"></i>
+      <div id="messageDropdown" class="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 hidden">
+        <p class="font-medium">Messages</p>
+        <div class="mt-2 space-y-2">
+          <p class="text-gray-700">You have a new message from Jane</p>
+          <!-- Add more messages as needed -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Customization -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Profile Customization</h2>
+    <div class="flex space-x-4 mb-4">
+      <div>
+        <p class="font-medium mb-2">Theme Color</p>
+        <input type="color" value="#23FF9ABF" class="w-16 h-16 border rounded">
+      </div>
+      <div>
+        <p class="font-medium mb-2">Font Style</p>
+        <select class="border rounded p-2">
+          <option value="Roboto">Roboto</option>
+          <!-- Add more font options as needed -->
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Settings -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Privacy Settings</h2>
+    <div class="space-y-4">
+      <div>
+        <p class="font-medium mb-2">Who can see your profile?</p>
+        <select class="border rounded p-2 w-full">
+          <option value="Public">Public</option>
+          <option value="Friends Only">Friends Only</option>
+          <option value="Private">Private</option>
+        </select>
+      </div>
+      <div>
+        <p class="font-medium mb-2">Who can see your activity feed?</p>
+        <select class="border rounded p-2 w-full">
+          <option value="Public">Public</option>
+          <option value="Friends Only">Friends Only</option>
+          <option value="Private">Private</option>
+        </select>
+      </div>
+      <div>
+        <p class="font-medium mb-2">Who can see your friend list?</p>
+        <select class="border rounded p-2 w-full">
+          <option value="Public">Public</option>
+          <option value="Friends Only">Friends Only</option>
+          <option value="Private">Private</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaderboard -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Leaderboard</h2>
+    <table class="w-full text-left border-collapse">
+      <thead>
+        <tr>
+          <th class="p-2 border-b">Rank</th>
+          <th class="p-2 border-b">Name</th>
+          <th class="p-2 border-b">Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="p-2 border-b">1</td>
+          <td class="p-2 border-b">John Doe</td>
+          <td class="p-2 border-b">1500</td>
+        </tr>
+        <!-- Add more leaderboard entries as needed -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Settings -->
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mb-6">
+    <h2 class="text-xl font-bold mb-4">Settings</h2>
+    <div class="space-y-4">
+      <div>
+        <p class="font-medium mb-2">Change Password</p>
+        <input type="password" placeholder="Current Password" class="border rounded p-2 w-full mb-2">
+        <input type="password" placeholder="New Password" class="border rounded p-2 w-full">
+      </div>
+      <div>
+        <p class="font-medium mb-2">Email Notifications</p>
+        <label class="flex items-center space-x-2">
+          <input type="checkbox" class="border rounded">
+          <span>Receive email notifications for friend requests</span>
+        </label>
+        <label class="flex items-center space-x-2">
+          <input type="checkbox" class="border rounded">
+          <span>Receive email notifications for messages</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function confirmLogout() {
+      if (confirm('Are you sure you want to logout?')) {
+        // Handle logout logic
+      }
+    }
+
+    function toggleNotifications() {
+      const dropdown = document.getElementById('notificationDropdown');
+      dropdown.classList.toggle('hidden');
+    }
+
+    function toggleMessages() {
+      const dropdown = document.getElementById('messageDropdown');
+      dropdown.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #F0FDF4; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 90%;
+        
+        }
+        .profile-card {
+            background-color: #FFFFFF;
+            border: 1px solid #23FF9A;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 200px;
+            margin: 0 auto;
+
+        }
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .profile-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .profile-email {
+            font-size: 14px;
+            color: #777;
+        }
+        .logout-btn {
+            background-color: #FF6B6B;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+        .logout-btn:hover {
+            background-color: #FF4D4D;
+        }
+        .quiz-results {
+            margin-top: 30px;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .quiz-results h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        .quiz-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #23FF9A33;
+        }
+        .quiz-table th,
+        .quiz-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .quiz-table th {
+            background-color: #23FF9A;
+            color: #333;
+        }
+        .quiz-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .quiz-table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Card Section -->
+        <div class="profile-card">
+            <img src="https://placehold.co/80x80" alt="User Profile Picture" class="profile-pic">
+            <div class="profile-name">Faij Alam</div>
+            <div class="profile-email">crazycoder2612@gmail.com</div>
+            <button class="logout-btn">Logout</button>
+        </div>
+
+        <!-- Quiz Results Table -->
+        <div class="quiz-results">
+            <h2>Quiz Results</h2>
+            <div class="overflow-x-auto">
+                <table class="quiz-table">
+                    <thead>
+                        <tr>
+                            <th>Language</th>
+                            <th>Topic</th>
+                            <th>Correct Answers</th>
+                            <th>Incorrect Answers</th>
+                            <th>Performance Tier</th>
+                            <th>Time (seconds)</th>
+                            <th>Mode</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Python</td>
+                            <td>Variable</td>
+                            <td>8</td>
+                            <td>2</td>
+                            <td>Excellent</td>
+                            <td>120</td>
+                            <td>10 Questions</td>
+                            <td>2023-10-01</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript</td>
+                            <td>All</td>
+                            <td>7</td>
+                            <td>3</td>
+                            <td>Good</td>
+                            <td>150</td>
+                            <td>10 Questions</td>
+                            <td>2023-10-02</td>
+                        </tr>
+                        
+                        <!-- Repeat for each quiz result -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

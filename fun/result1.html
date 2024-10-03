@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .bg-mint-green {
+            background-color: #b2f5ea;
+        }
+        .text-coral-pink {
+            color: #ff6b6b;
+        }
+        .bg-coral-pink {
+            background-color: #ff6b6b;
+        }
+        .badge-excellent {
+            background-color: #38a169;
+        }
+        .badge-good {
+            background-color: #ecc94b;
+        }
+        .badge-average {
+            background-color: #ed8936;
+        }
+        .badge-poor {
+            background-color: #e53e3e;
+        }
+    </style>
+</head>
+<body class="bg-mint-green min-h-screen flex flex-col items-center py-6 px-4">
+
+    <!-- Top Section -->
+    <div class="w-full max-w-4xl bg-white rounded-lg shadow-md p-6 mb-8 text-center">
+        <div class="flex flex-col items-center">
+            <img src="https://placehold.co/100x100" alt="User profile picture" class="rounded-full mb-4">
+            <h1 class="text-2xl font-bold">Username</h1>
+            <p class="text-gray-600">user@example.com</p>
+            <button class="bg-coral-pink text-white px-4 py-2 rounded mt-4">Logout</button>
+        </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="w-full max-w-4xl bg-white rounded-lg shadow-md overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Language</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Topic</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Correct Answers</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Incorrect Answers</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Performance Tier</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Time Taken (s)</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mode</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                <tr class="bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <i class="fab fa-python"></i> Python
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">Variables</td>
+                    <td class="px-6 py-4 whitespace-nowrap">8</td>
+                    <td class="px-6 py-4 whitespace-nowrap">2</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="badge-excellent text-white px-2 py-1 rounded-full">Excellent</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">120</td>
+                    <td class="px-6 py-4 whitespace-nowrap">10 Questions</td>
+                    <td class="px-6 py-4 whitespace-nowrap">2023-10-01</td>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <i class="fab fa-js-square"></i> JavaScript
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">Loops</td>
+                    <td class="px-6 py-4 whitespace-nowrap">6</td>
+                    <td class="px-6 py-4 whitespace-nowrap">4</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="badge-good text-white px-2 py-1 rounded-full">Good</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">150</td>
+                    <td class="px-6 py-4 whitespace-nowrap">20 Questions</td>
+                    <td class="px-6 py-4 whitespace-nowrap">2023-10-02</td>
+                </tr>
+                <!-- Repeat for each quiz result -->
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
