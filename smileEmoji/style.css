@@ -1,0 +1,161 @@
+:root {
+    --face-size: 400px;
+    --eye-size: 50px;
+    --eye-color: #333;
+    --white-lens-size: 20px;
+    --mouth-color: #333;
+    --skin-color: #ffeb3b;
+    --cheek-color: #ff6f61;
+    --shine-color: rgba(255, 255, 255, 0.6);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --cheek-size: 70px;
+    --eyebrow-width: 60px;
+    --eyebrow-height: 10px;
+    --eyebrow-color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ececec;
+}
+
+.smiley-container {
+    perspective: 1000px;
+}
+
+.smiley {
+    position: relative;
+    width: var(--face-size);
+    height: var(--face-size);
+    background-color: var(--skin-color);
+    border-radius: 50%;
+    box-shadow: 0 15px 25px var(--shadow-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: bob 3s infinite ease-in-out;
+}
+
+@keyframes bob {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.eye {
+    position: absolute;
+    width: var(--eye-size);
+    height: var(--eye-size);
+    background-color: var(--eye-color);
+    border-radius: 50%;
+    top: 30%;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-eye {
+    left: 25%;
+}
+
+.right-eye {
+    right: 25%;
+}
+
+.white-lens {
+    width: var(--white-lens-size);
+    height: var(--white-lens-size);
+    background-color: white;
+    border-radius: 50%;
+}
+
+.mouth {
+    position: absolute;
+    bottom: 18%;
+    width: 160px;
+    height: 60px;
+    border: none;
+    background-color: transparent;
+    transition: transform 0.5s ease;
+}
+
+.mouth::before {
+    content: '';
+    position: absolute;
+    width: 160px;
+    height: 6px;
+    background-color: var(--mouth-color);
+    top: 50%;
+    left: 0;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+.mouth.curve::before {
+    transform: translateY(-12px) rotate(0deg) scaleX(1); /* Create the smile */
+}
+
+.mouth.straight::before {
+    transform: translateY(0) scaleX(1); /* Straight line */
+}
+
+.cheek {
+    position: absolute;
+    width: var(--cheek-size);
+    height: var(--cheek-size);
+    background-color: var(--cheek-color);
+    border-radius: 50%;
+    opacity: 0.7;
+    top: 55%;
+}
+
+.left-cheek {
+    left: 10%;
+}
+
+.right-cheek {
+    right: 10%;
+}
+
+.eyebrow {
+    position: absolute;
+    width: var(--eyebrow-width);
+    height: var(--eyebrow-height);
+    background-color: var(--eyebrow-color);
+    border-radius: 50px;
+    top: 15%;
+}
+
+.left-eyebrow {
+    left: 22%;
+    transform: rotate(-15deg);
+}
+
+.right-eyebrow {
+    right: 22%;
+    transform: rotate(15deg);
+}
+
+.shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 35% 35%, var(--shine-color), transparent);
+    border-radius: 50%;
+    z-index: 1;
+}
