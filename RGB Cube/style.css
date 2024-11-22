@@ -1,0 +1,95 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #111;
+    perspective: 1200px;
+}
+
+.cube {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: rotateX(45deg) rotateY(45deg);
+    animation: rotateCube 10s infinite linear;
+    transition: transform 0.5s ease-in-out;
+}
+
+.cube:hover {
+    animation-play-state: paused;
+}
+
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    transform-style: preserve-3d;
+    opacity: 0.9;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.block {
+    width: 60px;
+    height: 60px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Inner core to fill the cube with white */
+.core {
+    position: absolute;
+    width: 190px; /* Slightly smaller than the cube */
+    height: 190px;
+    background-color: white;
+    transform: translateZ(-95px); /* Center the core inside the cube */
+    opacity: 0.9;
+}
+
+/* Define positions for each face */
+.face.front  { transform: translateZ(100px); }
+.face.back   { transform: rotateY(180deg) translateZ(100px); }
+.face.right  { transform: rotateY(90deg) translateZ(100px); }
+.face.left   { transform: rotateY(-90deg) translateZ(100px); }
+.face.top    { transform: rotateX(90deg) translateZ(100px); }
+.face.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+/* Cube rotation animation */
+@keyframes rotateCube {
+    0% { transform: rotateX(0) rotateY(0); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Fixed colors for each face */
+.face.front .block { background-color: red; }
+.face.back .block { background-color: blue; }
+.face.right .block { background-color: yellow; }
+.face.left .block { background-color: green; }
+.face.top .block { background-color: orange; }
+.face.bottom .block { background-color: purple; }
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .cube {
+        width: 150px;
+        height: 150px;
+    }
+    .face, .block {
+        width: 150px;
+        height: 150px;
+    }
+    .block {
+        width: 45px;
+        height: 45px;
+    }
+    .core {
+        width: 140px;
+        height: 140px;
+        transform: translateZ(-70px);
+    }
+}
